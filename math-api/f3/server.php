@@ -1,14 +1,8 @@
 <?php
 $reply = [];
-
-$data = $_SERVER["REQUEST_URI"];
-$data = explode("/", $data);
-$operation = $data[3];
-for($i = 0; $i<4; $i++)
-{
-    array_shift($data);
-}
-$numbers = $data;
+$data = $_POST;
+$operation = $_REQUEST["url"];
+$numbers = $data["numbers"];
 switch ($operation) {
     case "sum":
         if (count($numbers) < 2) {
@@ -82,5 +76,6 @@ switch ($operation) {
     default:
         $reply = ["report" => "ERR", "result" => "Input error."];    
 }
-echo json_encode($reply);
+    header('Content-Type: application/json; charset=utf-8');
+    echo json_encode($reply);
 ?>
