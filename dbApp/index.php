@@ -4,7 +4,6 @@ require_once 'MySQL.php';
 $mysql = new MySQL();
 $mysql->connect();
 
-// Retrieve records from database
 $customers = $mysql->select("SELECT * FROM Customer");
 $orders = $mysql->select("SELECT * FROM Orders");
 
