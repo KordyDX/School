@@ -15,5 +15,4 @@ def verifyPath(graph, node1, node2):
     else:
         return "Invalid node"
 
-
 print(verifyPath(input, 3, 4))
